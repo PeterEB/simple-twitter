@@ -1,6 +1,6 @@
 # User
 
-Get information of Simple Twitter User with GraphQL.
+Get information of Simple Twitter's User with GraphQL.
 
 - [Schema](#schema)
 - [Querys](#querys)
@@ -25,7 +25,7 @@ The User GraphQL Querys.
 
 ### users
 
-GraphQL Query of get all User.
+GraphQL Query of get all Users.
 
 **Arguments:**
 
