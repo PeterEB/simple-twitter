@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  tweet-service:
+    build: ./tweet-service
+    container_name: twitter-tweet-service
+    ports:
+      - '3000:3000'
+    environment:
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      DB_NAME: twitter
+    depends_on:
+      - 'tweet-db'
+    networks:
+      - root_network
+
+  tweet-db:
+    image: mysql:5.7
+    container_name: twitter-mysql
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: twitter
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - root_network
+
+networks:
+  root_network:
+    external: false
