@@ -1,6 +1,6 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { TweetService } from './tweet.service';
-import { Tweet } from 'src/tweet/tweet.entity';
+import { Tweet } from './tweet.entity';
 
 @Resolver('tweet')
 export class TweetResolver {
