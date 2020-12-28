@@ -1,0 +1,14 @@
+type Query {
+  tweets(userId: Int!): [Tweet]
+}
+
+type Mutation {
+  createTweet(userId: Int!, title: String!, content: String): Tweet
+}
+
+type Tweet {
+  id: Int!
+  title: String!
+  content: String
+  user: User!
+}
