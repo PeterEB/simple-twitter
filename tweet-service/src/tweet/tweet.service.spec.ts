@@ -35,15 +35,26 @@ describe('Tweet Service', () => {
   });
 
   describe('Function: findAllByUser', () => {
+    let user1: User;
     let tweet1: Tweet;
     let tweet2: Tweet;
 
     beforeEach(() => {
+      user1 = new User();
       tweet1 = new Tweet();
       tweet2 = new Tweet();
     });
 
     it('should get an array of tweets', async () => {
+      const findUserSpy = jest
+        .spyOn(userRepository, 'findOne')
+        .mockImplementation((conditions: { id: number }) => {
+          const { id } = conditions;
+
+          user1.id = id;
+
+          return Promise.resolve(user1);
+        });
       const findSpy = jest
         .spyOn(tweetRepository, 'find')
         .mockResolvedValue([new Tweet(), new Tweet()]);
@@ -51,8 +62,17 @@ describe('Tweet Service', () => {
       const userId = 1;
       const fetchedTweets = await service.findAllByUser(userId);
 
+      expect(findUserSpy).toBeCalledWith({ id: userId });
       expect(findSpy).toBeCalledWith({ userId });
       expect(fetchedTweets).toEqual([tweet1, tweet2]);
+    });
+
+    it('should throw a NotFoundException error', async () => {
+      jest.spyOn(userRepository, 'findOne').mockResolvedValue(undefined);
+
+      const userId = 9;
+
+      expect(service.findAllByUser(userId)).rejects.toThrow();
     });
   });
 

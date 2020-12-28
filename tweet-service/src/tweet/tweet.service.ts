@@ -15,6 +15,12 @@ export class TweetService {
   ) {}
 
   async findAllByUser(userId: number): Promise<Tweet[]> {
+    const user = await this.userRepository.findOne({ id: userId });
+
+    if (!user) {
+      throw new NotFoundException(`User with ID ${userId} is not found`);
+    }
+
     return this.tweetRepository.find({ userId: userId });
   }
 
