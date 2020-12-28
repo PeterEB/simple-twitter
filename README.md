@@ -13,4 +13,4 @@ The simple twitter.
 ## Documentation
 
 - [Tweet](https://github.com/PeterEB/simple-twitter/blob/master/tweet-service/doc/tweet.md)
-- [User](https://github.com/PeterEB/simple-twitter/blob/master/tweet-service/doc/user.md).
+- [User](https://github.com/PeterEB/simple-twitter/blob/master/tweet-service/doc/user.md)
