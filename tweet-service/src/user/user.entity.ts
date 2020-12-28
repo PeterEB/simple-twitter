@@ -1,5 +1,4 @@
 import {
-  BaseEntity,
   Entity,
   Column,
   JoinTable,
@@ -7,10 +6,10 @@ import {
   ManyToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Tweet } from 'src/tweet/tweet.entity';
+import { Tweet } from '../tweet/tweet.entity';
 
 @Entity()
-export class User extends BaseEntity {
+export class User {
   @PrimaryGeneratedColumn()
   id: number;
 

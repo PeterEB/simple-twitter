@@ -69,6 +69,10 @@ query {
       id
       name
     }
+    tweets {
+      id
+      title
+    }
   }
 }
 ```

@@ -1,14 +1,8 @@
-import {
-  BaseEntity,
-  Entity,
-  Column,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
-import { User } from 'src/user/user.entity';
+import { Entity, Column, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from '../user/user.entity';
 
 @Entity()
-export class Tweet extends BaseEntity {
+export class Tweet {
   @PrimaryGeneratedColumn()
   id: number;
 

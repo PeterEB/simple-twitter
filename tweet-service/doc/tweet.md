@@ -23,7 +23,7 @@ The Tweet GraphQL Schema.
 
 The Tweet GraphQL Querys.
 
-### Tweets
+### tweets
 
 GraphQL Query of get Tweets by user ID.
 
